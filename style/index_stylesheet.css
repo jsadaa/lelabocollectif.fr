@@ -1,0 +1,697 @@
+/*Fonts*/
+
+@font-face {
+    font-family: 'raisonnedemibold';
+    src: url('../fonts/raisonne_demibold-webfont.woff2') format('woff2'),
+         url('fonts/raisonne_demibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DomaineText';
+    src: url('../fonts/DomaineText-Light.woff2') format('woff2'),
+        url('../fonts/DomaineText-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*Body*/
+
+#bloc_page {
+    background-color: #FFFFFF; 
+    width: 1800px;
+    margin: auto;
+}
+
+/*Header*/
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 1800px;
+    height: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+header h1 {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 5em;
+    text-align: center;
+}
+
+header p {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 3em;
+    text-align: center;
+}
+
+/*Menu*/
+
+nav {
+    border-top:#5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2.2em;
+    color: #5481EA;
+}
+
+
+a:hover {
+    opacity: 0.5;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.plaquettes {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2em;
+    color: #FFFFFF;
+}
+
+.orga_plaquettes {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.liste {
+    font-size: 1.2em;
+}
+  
+/*Image*/
+
+.image_visuel {
+    width: 580px;   
+}
+
+/*Sections */
+
+h2 {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 3em;
+    text-align: center;
+}
+
+.sections {
+    box-sizing: border-box;
+    width: 1800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.section_left, .section_right {
+    overflow: auto;
+    width: 800px;
+    height: auto;
+}
+
+.section_right {
+    padding-top: 20px;
+}
+
+.section_bottom {
+    box-sizing: border-box;
+    width: 1800px;
+    height: 600px;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+iframe {
+    border: none;
+}
+
+/*Bandeau Icones*/
+
+.bandeau_icones {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.ico {
+    width: 70px;
+}
+
+/*Présentation Equipe*/
+
+.team {
+    box-sizing: border-box;
+    width: 1800px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 10px;
+    overflow: auto;
+    margin-bottom: 100px;
+}
+
+.presentation, .presentation_equipe {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2em;
+    color: #5481EA;
+
+}
+
+.titre_equipe {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 3em;
+    margin-bottom: 100px;
+}
+
+.span_equipe {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 1em;
+
+}
+
+
+/*Footer*/
+
+footer {
+    box-sizing: border-box;
+    padding: 10px;
+    border-top: #5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    margin-bottom: 100px;
+}
+
+.liens_asso {
+    box-sizing: border-box;
+    width: 1800px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social_media {
+    box-sizing: border-box;
+    width: 1800px;
+    display: flex;
+    justify-content: center;
+
+}
+
+/*Copyright*/
+
+.copyright {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 1.5em;
+    text-align: center;
+
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 1280px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 4em;
+    }
+
+    header p {
+        font-size: 2.5em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 30px;
+    }
+
+    .sections
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section_left {
+        padding-top: 0em;
+        margin: 0% 5%;
+    }
+
+    .section_bottom {
+        padding-bottom: 30px;
+        padding-top: 40px;
+    }
+
+
+   img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
+
+    .bandeau_icones {
+        display: none;
+    }
+
+    .titre_equipe {
+        font-size: 2em;
+        margin-bottom: 50px;
+    }
+
+    .presentation_equipe {
+        font-size: 1.6em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.7em;
+        color: #5481EA;
+    }
+
+    .presentation {
+        font-size: 1.6em;
+        padding-top: 0em;
+        margin-top: 0em;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    .sections
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section_left {
+        padding-top: 0em;
+    }
+
+    .section_bottom {
+        padding-bottom: 30px;
+        padding-top: 40px;
+    }
+
+
+   img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
+
+    .bandeau_icones {
+        display: none;
+    }
+
+    .team {
+        margin: 0% 5%;
+    }
+
+    .titre_equipe {
+        font-size: 2em;
+        margin-bottom: 50px;
+    }
+
+    .presentation_equipe {
+        font-size: 1.5em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #5481EA;
+    }
+
+    .presentation {
+        font-size: 1.5em;
+        padding-top: 0em;
+        margin-top: 0em;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 960px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    .sections
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section_left {
+        padding-top: 0em;
+    }
+
+    .section_bottom {
+        padding-bottom: 30px;
+        padding-top: 40px;
+    }
+
+
+   img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
+
+    .bandeau_icones {
+        display: none;
+    }
+
+    .team {
+        margin: 0% 5%;
+    }
+
+    .titre_equipe {
+        font-size: 2em;
+    }
+
+    .presentation_equipe {
+        font-size: 1.5em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #5481EA;
+    }
+
+    .presentation {
+        font-size: 1.5em;
+        padding-top: 0em;
+        margin-top: 0em;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+    iframe {
+        height: 550px;
+        width: 550px;
+        resize: both;
+        overflow: auto;
+    }
+
+
+}
+
+@media screen and (max-width: 800px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    .sections
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section_left {
+        padding-top: 0em;
+    }
+
+    .section_bottom {
+        padding-bottom: 30px;
+        padding-top: 40px;
+    }
+
+
+   img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
+
+    .bandeau_icones {
+        display: none;
+    }
+
+    .team {
+        margin: 0% 5%;
+    }
+
+    .titre_equipe {
+        font-size: 2em;
+    }
+
+    .presentation_equipe {
+        font-size: 1.5em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.3em;
+        color: #5481EA;
+    }
+
+    .presentation {
+        font-size: 1.5em;
+        padding-top: 0em;
+        margin-top: 0em;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+    iframe {
+        height: 450px;
+        width: 450px;
+        resize: both;
+        overflow: auto;
+    }
+
+
+}
+
+@media screen and (max-width: 600px) {
+    a {
+        font-size: 1em;
+    }
+
+    .presentation {
+        font-size: 1.2em;
+    }
+
+    .presentation_equipe {
+        font-size: 1.2em;
+    }
+
+    header h1 {
+        font-size: 3em;
+    }
+
+    header p {
+        font-size: 1.5em;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.5em;
+    }
+
+    iframe {
+        height: 350px;
+        width: 350px;
+        resize: both;
+        overflow: auto;
+    }
+}
+

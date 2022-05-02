@@ -1,0 +1,828 @@
+/*Fonts*/
+
+@font-face {
+    font-family: 'raisonnedemibold';
+    src: url('../fonts/raisonne_demibold-webfont.woff2') format('woff2'),
+         url('../fonts/raisonne_demibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DomaineText';
+    src: url('../fonts/DomaineText-Light.woff2') format('woff2'),
+        url('../fonts/DomaineText-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/*Body*/
+
+#bloc_page {
+    background-color: #FFFFFF; 
+    width: 1800px;
+    margin: auto;
+}
+
+body {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+}
+
+/*Header*/
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 1800px;
+    height: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+header h1 {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 5em;
+    text-align: center;
+}
+
+header p {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 3em;
+    text-align: center;
+}
+
+/*Menu*/
+
+nav {
+    border-top:#5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2.2em;
+    color: #5481EA;
+}
+
+
+a:hover {
+    opacity: 0.5;
+}
+
+/* Titres */
+
+h1 {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 2em;
+    text-align: center;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Post Creation*/
+
+#create {
+    margin: 20px;
+    padding: 10px;
+    font-size: 1.3em;
+    text-align: center;
+    border: 2px solid #5481EA;
+    border-radius: 50px;
+    width: 20%;
+    align-self: center;
+}
+
+/*form*/
+
+form {
+    border: 2px solid #5481EA;
+    margin: 5% 25%;
+    padding: 12px 20px;
+    font-family:'DomaineText', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5481EA;
+    line-height: 1.7;
+    z-index: 3;
+  }
+  
+  
+  .form-group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    font-family: 'raisonnedemibold', Arial, sans-serif; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+  
+  [type=text],
+  [type=email],
+  [type=number],
+  [type=file],
+  [type=password],
+  button,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    width: 80%;
+    max-width: 100%;
+    
+  }
+  
+  p {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+  }
+  
+  .form-control:focus {
+    border-color: white;
+    outline: 2px solid rgb(78, 146, 199);
+    box-shadow: 3px 5px 3px rgb(78, 146, 199);
+  }
+  
+  .submit-button {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    cursor: pointer;
+    background: #00b18c;
+    color: white;
+    width: 50%;
+  }
+/*Login*/
+
+.login-success {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 2em;
+    text-align: center;
+    margin: 20px;
+}
+
+#new-user {
+    font-size: 1.3em;
+}
+
+/*Logout*/
+
+#logout {
+    margin: 20px;
+    padding: 10px;
+    font-size: 1.3em;
+    text-align: center;
+    border: 2px solid #5481EA;
+    border-radius: 50px;
+    width: 20%;
+    align-self: center;
+}
+
+#logout-confirmation {
+    border: 2px solid #5481EA;
+    margin: 5% 25%;
+    padding: 12px 20px;
+    font-family:'DomaineText', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5481EA;
+    line-height: 1.7;
+    text-align: center;
+    word-break: break-word;
+}
+  
+#logout-confirmation > p {
+    word-break: break-word;
+  }
+
+.return_link {
+    font-size: 1.2em;
+    font-family:'DomaineText', Arial, sans-serif;
+  }
+
+/*Posts*/
+
+article {
+    border: #00b18c solid 2px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.posts {
+    border-top: #5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    width: 100%;
+    font-family:'DomaineText', Arial, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container > article > p {
+    padding-top: 10px;
+    font-style: italic;
+}
+
+.container > article > h2 {
+    text-align: left;
+    font-size: 1.7em;
+}
+
+.modify-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.modify-post {
+    font-size: 1.2em;
+    font-style: normal;
+    text-align: right;
+    border: #5481EA 2px solid;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 5px;
+}
+
+/*Footer*/
+
+footer {
+    box-sizing: border-box;
+    padding: 10px;
+    border-top: #5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    margin-bottom: 100px;
+}
+
+.liens_asso {
+    box-sizing: border-box;
+    width: 1800px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social_media {
+    box-sizing: border-box;
+    width: 1800px;
+    display: flex;
+    justify-content: center;
+
+}
+
+/*copyright*/
+
+.copyright {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 1.5em;
+    text-align: center;
+
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 1280px) {
+
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header {
+    margin: 5% 20%;
+   }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 4em;
+    }
+
+    header p {
+        font-size: 2.5em;
+    }
+
+    nav {
+        padding-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+      }
+  
+    h2 {
+        font-size: 1.4em;
+    }
+
+    #post_title {
+        font-size: 1.4em;
+    }
+
+    .login-success {
+        font-size: 1.5em;
+    }
+
+    #logout-confirmation {
+
+        margin: 0% 25%;
+
+    }
+
+    #create, .modify-post, #logout {
+        font-size: 1.1em;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    form {
+        margin: 20px; 
+        width: auto;
+        height: auto;
+        margin-bottom: 20px;
+    } 
+
+    .return_link {
+      font-size: 1em;
+    }
+
+    .form-group {
+      font-size: 1em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.7em;
+        color: #5481EA;
+    }
+
+    .submit-button {
+        width: 40%;
+        margin-top: 20px;
+      }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header {
+    margin: 5% 20%;
+   }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+      }
+  
+    h2 {
+        font-size: 1.4em;
+    }
+
+    #post_title {
+        font-size: 1.4em;
+    }
+
+    .login-success {
+        font-size: 1.5em;
+    }
+
+    #logout-confirmation {
+        margin: 0% 25%;
+    }
+
+    #create, .modify-post, #logout {
+        font-size: 1.1em;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    form {
+        margin: 20px; 
+        width: auto;
+        height: auto;
+        margin-bottom: 20px;
+    } 
+
+    .return_link {
+      font-size: 1em;
+    }
+
+    .form-group {
+      font-size: 0.8em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #5481EA;
+    }
+
+    .submit-button {
+        width: 40%;
+        margin-top: 20px;
+      }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+
+}
+
+@media screen and (max-width: 960px) {
+
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header {
+    margin: 5% 20%;
+   }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+      }
+  
+    h2 {
+        font-size: 1.4em;
+    }
+
+    #post_title {
+        font-size: 1.4em;
+    }
+
+    .login-success {
+        font-size: 1.5em;
+    }
+
+    #logout-confirmation {
+
+        margin: 0% 25%;
+        
+    }
+
+    #create, .modify-post, #logout {
+        font-size: 1.1em;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    form {
+        margin: 20px; 
+        width: auto;
+        height: auto;
+        margin-bottom: 20px;
+    } 
+
+    .return_link {
+      font-size: 1em;
+    }
+
+    .form-group {
+      font-size: 0.8em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #5481EA;
+    }
+
+    .submit-button {
+        width: 40%;
+        margin-top: 20px;
+      }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header {
+    margin: 5% 20%;
+   }
+
+    header, nav, .bandeau_portfolio, .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+      }
+  
+    h2 {
+        font-size: 1.4em;
+    }
+
+    #post_title {
+        font-size: 1.4em;
+    }
+
+    .login-success {
+        font-size: 1.3em;
+    }
+
+    #logout-confirmation {
+
+        margin: 0% 25%;
+        
+    }
+
+    #create, .modify-post, #logout {
+        font-size: 1em;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    form {
+        margin: 20px; 
+        width: auto;
+        height: auto;
+        margin-bottom: 20px;
+        line-height: 1.5em;
+        padding: 12px 20px;
+      } 
+    
+      .form-group {
+        margin: 0 auto 0 auto;
+        font-size: 0.7em;
+        padding: 0em;
+      }
+
+    .return_link {
+      font-size: 1em;
+    }
+
+    .form-group {
+      font-size: 0.7em;
+    }
+
+    #logout-confirmation > h1 {
+        font-size: 1.2em;
+    }
+
+    #logout-confirmation > h2 {
+        font-size: 1.2em;
+    }
+
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.3em;
+        color: #5481EA;
+    }
+
+    .submit-button {
+        width: 40%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+
+}
+
+@media screen and (max-width: 600px) {
+    a {
+        font-size: 1em;
+    }
+  
+    header h1 {
+        font-size: 3em;
+    }
+  
+    header p {
+        font-size: 1.5em;
+    }
+  
+    h2 {
+        font-size: 1.1em;
+    }
+  
+    .form-group {
+        font-size: 0.6em;
+    }
+
+    #create, .modify-post, #logout {
+        font-size: 0.8em;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .login-success {
+        font-size: 1.1em;
+    }
+
+    #post_title {
+        font-size: 1.1em;
+    }
+
+    #logout-confirmation > h1 {
+        font-size: 1em;
+    }
+
+    #logout-confirmation > h2 {
+        font-size: 1em;
+    }
+
+    .return_link {
+        font-size: 0.8em;
+      }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.5em;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+
+    #create, .modify-post, #logout {
+        font-size: 0.7em;
+        margin: 10px;
+        padding: 5px;
+    }
+
+  }
+  

@@ -1,0 +1,656 @@
+/*Fonts*/
+
+@font-face {
+    font-family: 'raisonnedemibold';
+    src: url('../fonts/raisonne_demibold-webfont.woff2') format('woff2'),
+         url('../fonts/raisonne_demibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DomaineText';
+    src: url('../fonts/DomaineText-Light.woff2') format('woff2'),
+        url('../fonts/DomaineText-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*Body*/
+
+#bloc_page {
+    background-color: #FFFFFF; 
+    width: 1800px;
+    margin: auto;
+}
+
+/*Header*/
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 1800px;
+    height: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 5em;
+    text-align: center;
+}
+
+header p {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 3em;
+    text-align: center;
+}
+
+/*Menu*/
+
+nav {
+
+    border-top:#5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2.2em;
+    color: #5481EA;
+}
+
+
+a:hover {
+    opacity: 0.5;
+}
+
+.bandeau_transparent > a {
+    text-decoration: none;
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2em;
+    color: #5481EA;
+}
+
+.av1 > .bandeau_transparent > a {
+    text-decoration: none;
+    font-family: 'raisonnedemibold', Arial, sans-serif;
+    font-size: 2em;
+    color: white;
+}
+
+
+a:hover {
+    opacity: 0.5;
+}
+
+/*Plaquettes*/
+
+#av1 {
+    background-image: url('../images/plaquette_ateliersvivants/plaquette_ateliersvivants_pages-to-jpg-0001.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 1300px;
+}
+
+#plaquettes {
+    display: flex;
+    flex-direction: row;
+}
+
+#mediation {
+    background-image: url('../images/plaquette_mediation/plaquette_mediation_pages-to-jpg-0001.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 1300px;
+}
+
+#sensibilisation {
+    background-image: url('../images/plaquette_sensibilisation/plaquette_sensibilisation_pages-to-jpg-0001.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 1300px;
+}
+
+.bandeau_transparent {
+    text-align: center;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 80px;
+    border-radius: 5px;
+}
+
+#support_link {
+    border-top:#5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*Footer*/
+
+footer {
+    box-sizing: border-box;
+    padding: 10px;
+    border-top: #5481EA solid 2px;
+    border-bottom: #5481EA solid 2px;
+    margin-bottom: 100px;
+}
+
+.liens_asso {
+    box-sizing: border-box;
+    width: 1800px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social_media {
+    box-sizing: border-box;
+    width: 1800px;
+    display: flex;
+    justify-content: center;
+
+}
+
+/*copyright*/
+
+.copyright {
+    font-family: 'DomaineText', Arial, sans-serif;
+    color: #5481EA;
+    font-size: 1.5em;
+    text-align: center;
+
+}
+
+/*Media Queries*/
+
+@media screen and (max-width: 1280px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 4em;
+    }
+
+    header p {
+        font-size: 2.5em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 30px;
+    }
+
+    section {
+        width: auto;
+ 
+    }
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 930px;
+
+
+    }
+
+    .bandeau_transparent {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 60px;
+        border-radius: 5px;
+    }
+
+    .bandeau_transparent > a {
+        font-size: 1.5em;
+    }
+    
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.7em;
+        color: #5481EA;
+    }
+
+    #support_link {
+        height: 80px;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 1200px)
+{
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 760px;
+    }
+
+    .bandeau_transparent {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 45px;
+        border-radius: 5px;
+    }
+
+    .bandeau_transparent > a {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 1024px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    section {
+        width: auto;
+ 
+    }
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 720px;
+
+
+    }
+
+    .bandeau_transparent {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+    .bandeau_transparent > a {
+        font-size: 1.3em;
+    }
+    
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #5481EA;
+    }
+
+    #support_link {
+        height: 80px;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 960px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    section {
+        width: auto;
+ 
+    }
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 650px;
+
+
+    }
+
+    .bandeau_transparent {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+    .bandeau_transparent > a {
+        font-size: 1.2em;
+    }
+    
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.5em;
+        color: #5481EA;
+    }
+
+    #support_link {
+        height: 80px;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 800px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+
+    header, nav, .bandeau_portfolio, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header p {
+        font-size: 2em;
+    }
+
+    header {
+        margin: 5% 20%;
+    }
+
+    nav {
+        padding-bottom: 20px;
+    }
+
+    section {
+        width: auto;
+ 
+    }
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 600px;
+    }
+
+    .bandeau_transparent {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .bandeau_transparent > a {
+        font-size: 1.2em;
+    }
+    
+    a {
+        font-family: 'raisonnedemibold', Arial, sans-serif;
+        font-size: 1.3em;
+        color: #5481EA;
+    }
+
+    #support_link {
+        height: 80px;
+    }
+
+    footer {
+        margin-bottom: 50px;
+        margin-top: 40px;
+      }
+  
+
+    .liens_asso, .social_media {
+        display: block;
+        text-align: center;
+        margin: 5px;
+        font-size: 1em;
+
+    }
+
+    .copyright {
+        font-size: 1.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 750px)
+{
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 450px;
+    }
+
+    .bandeau_transparent {
+        text-align: center;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .bandeau_transparent > a {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 650px) 
+{
+
+    .bandeau_transparent > a {
+        font-size: 1em;
+    }
+
+    .bandeau_transparent {
+        height: 25px;
+    }
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 320px;
+    }
+
+    #support_link {
+        border-top:#5481EA solid 2px;
+        border-bottom: #5481EA solid 2px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        margin-top: 20px;
+        padding-top: 15px;
+        width: 100%;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    a {
+        font-size: 1em;
+    }
+
+    header h1 {
+        font-size: 3em;
+    }
+
+    header p {
+        font-size: 1.5em;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.5em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .bandeau_transparent > a {
+        font-size: 0.8em;
+    }
+
+    .bandeau_transparent {
+        height: 25px;
+    }
+
+    #av1, #mediation, #sensibilisation {
+        background-size: contain;
+        height: 260px;
+    }
+}
