@@ -18,11 +18,12 @@
     font-display: swap;
 }
 
-/*Body*/
+/*Body and general*/
 
 #bloc_page {
     background-color: #FFFFFF; 
-    width: 1800px;
+    /*width: 1800px;*/
+    width: auto;   
     margin: auto;
 }
 
@@ -31,7 +32,7 @@
 header {
     display: flex;
     justify-content: center;
-    width: 1800px;
+    width: auto;   
     height: 350px;
     padding: 10px;
     box-sizing: border-box;
@@ -61,7 +62,7 @@ nav {
     margin-bottom: 40px;
     margin-top: 20px;
     padding-top: 20px;
-    width: 100%;
+    width: auto;   
     height: 100px;
     display: flex;
     flex-direction: row;
@@ -80,69 +81,39 @@ a:hover {
     opacity: 0.5;
 }
 
-.bandeau_transparent > a {
-    text-decoration: none;
-    font-family: 'raisonnedemibold', Arial, sans-serif;
-    font-size: 2em;
-    color: #5481EA;
-}
-
-.av1 > .bandeau_transparent > a {
-    text-decoration: none;
-    font-family: 'raisonnedemibold', Arial, sans-serif;
-    font-size: 2em;
-    color: white;
-}
-
-
 a:hover {
     opacity: 0.5;
 }
 
 /*Plaquettes*/
 
-#av1 {
-    background-image: url('../images/plaquette_ateliersvivants/plaquette_ateliersvivants_pages-to-jpg-0001.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    width: 100%;
-    height: 1300px;
+.plaquettes {
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    height: auto;
 }
 
-#plaquettes {
-    display: flex;
-    flex-direction: row;
+.plaquettes > a {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+
 }
 
 #mediation {
-    background-image: url('../images/plaquette_mediation/plaquette_mediation_pages-to-jpg-0001.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    width: 100%;
-    height: 1300px;
+    display: grid;
+    place-items: center;
 }
 
 #sensibilisation {
-    background-image: url('../images/plaquette_sensibilisation/plaquette_sensibilisation_pages-to-jpg-0001.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    width: 100%;
-    height: 1300px;
-}
-
-.bandeau_transparent {
-    text-align: center;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.5);
-    bottom: 5%;
-    left: 5%;
-    right: 5%;
-    width: 90%;
-    height: 80px;
-    border-radius: 5px;
+    display: grid;
+    place-items: center;
 }
 
 #support_link {
@@ -171,7 +142,7 @@ footer {
 
 .liens_asso {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     height: 100px;
     display: flex;
     justify-content: space-around;
@@ -179,7 +150,7 @@ footer {
 
 .social_media {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     display: flex;
     justify-content: center;
 
@@ -230,28 +201,6 @@ footer {
         width: auto;
  
     }
-
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 930px;
-
-
-    }
-
-    .bandeau_transparent {
-        text-align: center;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 60px;
-        border-radius: 5px;
-    }
-
-    .bandeau_transparent > a {
-        font-size: 1.5em;
-    }
     
     a {
         font-family: 'raisonnedemibold', Arial, sans-serif;
@@ -282,30 +231,6 @@ footer {
     }
 
 
-}
-
-@media screen and (max-width: 1200px)
-{
-
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 760px;
-    }
-
-    .bandeau_transparent {
-        text-align: center;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 45px;
-        border-radius: 5px;
-    }
-
-    .bandeau_transparent > a {
-        font-size: 1.3em;
-    }
 }
 
 @media screen and (max-width: 1024px)
@@ -342,28 +267,6 @@ footer {
  
     }
 
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 720px;
-
-
-    }
-
-    .bandeau_transparent {
-        text-align: center;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 40px;
-        border-radius: 5px;
-    }
-
-    .bandeau_transparent > a {
-        font-size: 1.3em;
-    }
-    
     a {
         font-family: 'raisonnedemibold', Arial, sans-serif;
         font-size: 1.5em;
@@ -429,28 +332,6 @@ footer {
  
     }
 
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 650px;
-
-
-    }
-
-    .bandeau_transparent {
-        text-align: center;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 40px;
-        border-radius: 5px;
-    }
-
-    .bandeau_transparent > a {
-        font-size: 1.2em;
-    }
-    
     a {
         font-family: 'raisonnedemibold', Arial, sans-serif;
         font-size: 1.5em;
@@ -515,26 +396,6 @@ footer {
         width: auto;
  
     }
-
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 600px;
-    }
-
-    .bandeau_transparent {
-        text-align: center;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 30px;
-        border-radius: 5px;
-    }
-
-    .bandeau_transparent > a {
-        font-size: 1.2em;
-    }
     
     a {
         font-family: 'raisonnedemibold', Arial, sans-serif;
@@ -543,7 +404,7 @@ footer {
     }
 
     #support_link {
-        height: 80px;
+        height: 70px;
     }
 
     footer {
@@ -561,62 +422,10 @@ footer {
     }
 
     .copyright {
-        font-size: 1.2em;
-    }
-
-
-}
-
-@media screen and (max-width: 750px)
-{
-
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 450px;
-    }
-
-    .bandeau_transparent {
-        text-align: center;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 30px;
-        border-radius: 5px;
-    }
-
-    .bandeau_transparent > a {
-        font-size: 1.2em;
-    }
-}
-
-@media screen and (max-width: 650px) 
-{
-
-    .bandeau_transparent > a {
         font-size: 1em;
     }
 
-    .bandeau_transparent {
-        height: 25px;
-    }
 
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 320px;
-    }
-
-    #support_link {
-        border-top:#5481EA solid 2px;
-        border-bottom: #5481EA solid 2px;
-        box-sizing: border-box;
-        margin-bottom: 30px;
-        margin-top: 20px;
-        padding-top: 15px;
-        width: 100%;
-        height: 60px;
-    }
 }
 
 @media screen and (max-width: 600px) {
@@ -638,19 +447,9 @@ footer {
         align-items: center;
         line-height: 1.5em;
     }
-}
 
-@media screen and (max-width: 450px) {
-    .bandeau_transparent > a {
-        font-size: 0.8em;
-    }
-
-    .bandeau_transparent {
-        height: 25px;
-    }
-
-    #av1, #mediation, #sensibilisation {
-        background-size: contain;
-        height: 260px;
+    #support_link {
+        height: 35px;
+        padding-bottom: 40px;
     }
 }

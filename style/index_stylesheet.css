@@ -18,11 +18,12 @@
     font-display: swap;
 }
 
-/*Body*/
+/*Body and general*/
 
 #bloc_page {
     background-color: #FFFFFF; 
-    width: 1800px;
+    /*width: 1800px;*/
+    width: auto;
     margin: auto;
 }
 
@@ -31,7 +32,7 @@
 header {
     display: flex;
     justify-content: center;
-    width: 1800px;
+    width: auto;   
     height: 350px;
     padding: 10px;
     box-sizing: border-box;
@@ -61,7 +62,7 @@ nav {
     margin-bottom: 40px;
     margin-top: 20px;
     padding-top: 20px;
-    width: 100%;
+    width: auto;   
     height: 100px;
     display: flex;
     flex-direction: row;
@@ -117,7 +118,7 @@ h2 {
 
 .sections {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -130,13 +131,14 @@ h2 {
     height: auto;
 }
 
+
 .section_right {
     padding-top: 20px;
 }
 
 .section_bottom {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     height: 600px;
     padding: 50px;
     display: flex;
@@ -169,7 +171,7 @@ iframe {
 
 .team {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     height: 600px;
     display: flex;
     flex-direction: row;
@@ -179,11 +181,16 @@ iframe {
     margin-bottom: 100px;
 }
 
-.presentation, .presentation_equipe {
+.presentation {
+    font-family: 'DomaineText', Arial, sans-serif;
+    font-size: 2em;
+    color: #5481EA;
+}
+
+.presentation_equipe {
     font-family: 'raisonnedemibold', Arial, sans-serif;
     font-size: 2em;
     color: #5481EA;
-
 }
 
 .titre_equipe {
@@ -213,7 +220,7 @@ footer {
 
 .liens_asso {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     height: 100px;
     display: flex;
     justify-content: space-around;
@@ -221,7 +228,7 @@ footer {
 
 .social_media {
     box-sizing: border-box;
-    width: 1800px;
+    width: auto;   
     display: flex;
     justify-content: center;
 
@@ -238,6 +245,41 @@ footer {
 }
 
 /*Media Queries*/
+
+@media screen and (max-width: 1650px) {
+    .sections
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bandeau_transparent, .sections, .section_right, .section_left, .section_bottom, .team, .liens_asso, .social_media
+    {
+        width: auto;
+        height: auto;
+    }
+
+    .bandeau_icones {
+        display: none;
+    }
+
+    .section_left {
+        padding-top: 0em;
+        margin: 15px 5%;
+    }
+
+    .section_bottom {
+        padding-bottom: 30px;
+        padding-top: 40px;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+}
 
 @media screen and (max-width: 1280px)
 {
@@ -292,10 +334,6 @@ footer {
         height: auto;
     }
 
-
-    .bandeau_icones {
-        display: none;
-    }
 
     .titre_equipe {
         font-size: 2em;
@@ -647,7 +685,7 @@ footer {
     }
 
     .copyright {
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     iframe {

@@ -12,24 +12,17 @@
 
         <?php include_once('header.php'); ?>
 
-            <section id="ateliers_vivants">
-                <div id="av1">
-                    <div class="bandeau_transparent">
-                        <a href="./images/pdf/plaquette_ateliersvivants.pdf">Télécharger la plaquette</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="plaquettes">   
+            <section class="plaquettes"> 
+            <a href="./images/pdf/plaquette_mediation.pdf">Télécharger la plaquette médiation</a>      
                 <div id="mediation">
-                    <div class="bandeau_transparent">
-                        <a href="./images/pdf/plaquette_mediation.pdf">Télécharger la plaquette</a>
-                    </div>
+                    <img src="./images/plaquette_mediation/plaquette_mediation_pages-to-jpg-0001.png">
                 </div>
+            </section>    
+            
+            <section class="plaquettes"> 
+            <a href="./images/pdf/plaquette_sensibilisation.pdf">Télécharger la plaquette sensibilisation</a>   
                 <div id="sensibilisation">
-                    <div class="bandeau_transparent">
-                        <a href="./images/pdf/plaquette_sensibilisation.pdf">Télécharger la plaquette</a>
-                    </div>
+                    <img src="./images/plaquette_sensibilisation/plaquette_sensibilisation_pages-to-jpg-0001.png">  
                 </div> 
             </section>
 

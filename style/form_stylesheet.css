@@ -17,10 +17,12 @@
     font-style: normal;
     font-display: swap;
 }
+/*Body and general*/
 
 #bloc_page {
   background-color: #FFFFFF; 
-  width: 1800px;
+  /*width: 1800px;*/
+  width: auto;
   margin: auto;
 }
 
@@ -29,7 +31,7 @@
 header {
   display: flex;
   justify-content: center;
-  width: 1800px;
+  width: auto;   
   height: 350px;
   padding: 10px;
   box-sizing: border-box;
@@ -59,7 +61,7 @@ nav {
   margin-bottom: 40px;
   margin-top: 20px;
   padding-top: 20px;
-  width: 100%;
+  width: auto;   
   height: 100px;
   display: flex;
   flex-direction: row;
@@ -234,7 +236,7 @@ footer {
 
 .liens_asso {
   box-sizing: border-box;
-  width: 1800px;
+  width: auto;   
   height: 100px;
   display: flex;
   justify-content: space-around;
@@ -242,7 +244,7 @@ footer {
 
 .social_media {
   box-sizing: border-box;
-  width: 1800px;
+  width: auto;   
   display: flex;
   justify-content: center;
 }
@@ -254,6 +256,10 @@ footer {
   color: #5481EA;
   font-size: 1.5em;
   text-align: center;
+}
+
+.copyright > p {
+  font-family: 'DomaineText', Arial, sans-serif;
 }
 
 /*Media Queries*/
@@ -610,7 +616,7 @@ footer {
   }
 
   .copyright {
-      font-size: 1.2em;
+      font-size: 1em;
   }
 
 
