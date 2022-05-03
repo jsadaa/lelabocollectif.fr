@@ -33,15 +33,14 @@
 
                 <a id="create" href="create_post.php">Créer une publication</a> 
                 
-                <!--We display the posts-->
-                <?php foreach(getPosts($posts) as $post) : ?>
+                <?php foreach(getPosts($posts) as $post) : //We display the posts ?>
                     <?php $postsExist = true ?>
                     <article>
                         <h2 id="post_title"><?php echo $post['title']; ?></h2>
                         <div class="posts"><?php echo $post['post']; ?></div>
                         <p><?php echo displayAuthor($post['author'], $users); ?></p>
-                        <!--We only display the features if the user is the creator of the post or the admin-->
-                        <?php if((isset($_SESSION['LOGGED_USER']) && $post['author'] === $_SESSION['LOGGED_USER_NAME']) || $_SESSION['LOGGED_USER_ACCOUNT_TYPE'] === true): ?>
+                        <?php //We only display the features if the user is the creator of the post or the admin
+                        if((isset($_SESSION['LOGGED_USER']) && $post['author'] === $_SESSION['LOGGED_USER_NAME']) || $_SESSION['LOGGED_USER_IS_ADMIN']): ?>
                         <div class="modify-div">
                             <a class="modify-post" href="update_post.php?id=<?php echo($post['post_id']); ?>">Modifier</a>
                             <a class="modify-post" href="delete_post.php?id=<?php echo($post['post_id']); ?>">Supprimer</a>

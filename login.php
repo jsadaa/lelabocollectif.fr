@@ -15,7 +15,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         ) {
             $_SESSION['LOGGED_USER'] = $user['email'];
             $_SESSION['LOGGED_USER_NAME'] = $user['full_name'];
-            $_SESSION['LOGGED_USER_ACCOUNT_TYPE'] = $user['is_admin'];
+            $_SESSION['LOGGED_USER_IS_ADMIN'] = $user['isAdmin'];
         } else {
             $errorMessage = 'L\'identifiant et/ou le mot de passe sont incorrects...';
         }
