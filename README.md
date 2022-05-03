@@ -1,5 +1,6 @@
 # lelabocollectif.fr
-prototype website for the association "le labo collectif" with home, documentation, contact form and forum space.
+
+Prototype website for the association "le labo collectif" with home, documentation, contact form and forum space.
 
 The first idea was a static website to display the association infos et news. 
 Then i added a documentation page to display the association booklets.
@@ -20,6 +21,6 @@ No frameworks here, i wanted to learn pure basic languages first.
 I starded coding 2 month ago and i love it.
 I'm officialy starting studying it in october but i'm already taking courses online.
 
-I hope you'll ike it.
+I hope you'll like it.
 
 Léo
