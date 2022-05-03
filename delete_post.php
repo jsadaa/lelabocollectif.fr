@@ -23,12 +23,10 @@ $getData = $_GET;
         <form id="post-form" action="submit_post_delete.php" method="POST">
 
             <h2>Supprimer la publication ?</h2>
-
-            <!-- We send the id via hidden input-->
             
             <div class="form-group">
                 <label for="id" class="form-label"></label>
-                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo($getData['id']); ?>">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo($getData['id']); //We send the id via hidden input?>">
             </div>
             
             <div class="form-group">

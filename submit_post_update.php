@@ -35,9 +35,9 @@ $insertPostUpdate->execute([
 
 <div id="bloc_page">
 
-<!--If there is no post id and data, we display an error message-->
-
-<?php if (
+<?php 
+//If there is no post id and data, we display an error message
+if (
     !isset($postData['id'])
     || !isset($postData['title']) 
     || !isset($postData['post'])
@@ -48,9 +48,7 @@ $insertPostUpdate->execute([
         <a href="forum.php">Retour dans l'Espace Collectif</a>
     </div>
 
-<?php else: ?>
-
-<!--We display post mods details-->    
+<?php else: //We display post mods details ?>
 
 <div id="contact-confirmation">
     <h1>Publication modifiée !</h1>

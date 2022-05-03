@@ -30,9 +30,11 @@ $post = $retrievePostStatement->fetch(PDO::FETCH_ASSOC);?>
 
     <?php include_once('header.php');?>
 
-    <!--If there is no post id or if the post id is not a number, we display a message error-->
 
-    <?php if (!isset($getData['id']) && is_numeric($getData['id'])): ?>
+
+    <?php 
+    //If there is no post id or if the post id is not a number, we display a message error
+    if (!isset($getData['id']) && is_numeric($getData['id'])): ?>
 
       <div id="contact-error">
           <p>Il faut un identifiant de publication pour le modifier...</p>

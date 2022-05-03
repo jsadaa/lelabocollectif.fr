@@ -23,18 +23,16 @@ $title = $_POST['title'];
 $post = $_POST['post'];
 ?>
 
-<!--If the form is not correctly filled or empty, we display an error message-->
-
-<?php if (!isset($_POST['title']) || empty($_POST['post'])): ?>
+<?php 
+//If the form is not correctly filled or empty, we display an error message
+if (!isset($_POST['title']) || empty($_POST['post'])): ?>
 
     <div id="contact-error">
         <p>Il faut un titre et une publication pour soumettre le formulaire...</p>
         <a href="create_post.php">Retour au formulaire</a>
     </div>
 
-<?php else: ?>
-
- <!--We display the new post details-->   
+<?php else:  //We display the new post details ?>
 
 <div id="contact-confirmation">
     <h1>Publication envoyée !</h1>
@@ -45,16 +43,14 @@ $post = $_POST['post'];
     <p><a class="return_link" href="forum.php">Retour dans l'espace collectif</a></p>
 </div>
 
-<!--We insert the new post in the database-->
-
 <?php 
+//We insert the new post in the database
 $insertPost = $mysqlClient->prepare('INSERT INTO posts(title, post, author, is_enabled) VALUES (:title, :post, :author, :is_enabled)');
 $insertPost->execute([
     'title' => $title,
     'post' => $post,
     'author' => $_SESSION['LOGGED_USER_NAME'],
-    'is_enabled' => 1,
-    
+    'is_enabled' => 1,   
 ]);
 ?>
 
@@ -63,6 +59,5 @@ $insertPost->execute([
 <?php include_once("footer.php");?>
 
 </div>
-
 </body>
 </html>

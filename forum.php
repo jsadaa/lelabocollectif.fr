@@ -21,17 +21,15 @@
 
         <?php include_once('login.php'); ?>
 
-        <!--Variable to allow the admin to update and delete posts-->
-
-        <?php $adminName = 'Léo Paillard';?>
-
-        <!--Variable to display message if there is no posts-->
-        <?php $postsExist = false ?>
+        <?php 
+        //Variable to display message if there is no posts
+        $postsExist = false ?>
 
         <div class="container">
 
-            <!-- If the user is logged in, we display posts and features-->
-            <?php if(isset($_SESSION['LOGGED_USER'])): ?>
+            <?php 
+            //If the user is logged in, we display posts and features
+            if(isset($_SESSION['LOGGED_USER'])): ?>
 
                 <a id="create" href="create_post.php">Créer une publication</a> 
                 
@@ -43,7 +41,7 @@
                         <div class="posts"><?php echo $post['post']; ?></div>
                         <p><?php echo displayAuthor($post['author'], $users); ?></p>
                         <!--We only display the features if the user is the creator of the post or the admin-->
-                        <?php if((isset($_SESSION['LOGGED_USER']) && $post['author'] === $_SESSION['LOGGED_USER_NAME']) || $_SESSION['LOGGED_USER_NAME'] === $adminName): ?>
+                        <?php if((isset($_SESSION['LOGGED_USER']) && $post['author'] === $_SESSION['LOGGED_USER_NAME']) || $_SESSION['LOGGED_USER_ACCOUNT_TYPE'] === true): ?>
                         <div class="modify-div">
                             <a class="modify-post" href="update_post.php?id=<?php echo($post['post_id']); ?>">Modifier</a>
                             <a class="modify-post" href="delete_post.php?id=<?php echo($post['post_id']); ?>">Supprimer</a>
@@ -52,15 +50,16 @@
                     </article>
                 <?php endforeach ?>
                  
-                <!--if there is no posts, we display this message-->
-                <?php if($postsExist === false ):?>
+                <?php 
+                //if there is no posts, we display a message
+                if($postsExist === false):?>
 
                     <h2>Il n'y a aucune publication pour le moment. Créez-en une !</h2>
 
                 <?php endif;?>
 
                 <a id="logout" href="logout.php">Déconnexion</a>
-                <a id="logout" class="delete_link" href="delete_user.php?id="<?php echo($_SESSION['LOGGED_USER_NAME']); ?>>Supprimer mon compte</a>
+                <a id="logout" class="delete_link" href="delete_user.php?id=<?php echo($_SESSION['LOGGED_USER_NAME']);?>">Supprimer mon compte</a>
                 
             <?php endif; ?>
         </div>

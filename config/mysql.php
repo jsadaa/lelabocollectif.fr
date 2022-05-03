@@ -1,11 +1,13 @@
 <?php
+include_once('../variables.php');
+
 try
 {
 	// Connexion to MySql
 	$mysqlClient = new PDO(
-        'mysql:host=db5007429476.hosting-data.io;dbname=dbs6121931;charset=utf8',
-        'dbu2184153',
-        'High940520102020!',
+        $sqlConfig,
+        $sqlId,
+        $sqlPassword,
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
 }

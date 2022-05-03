@@ -25,27 +25,25 @@ $age = $_POST['age'];
 $password = $_POST['password'];
 ?>
 
-<!-- If the form is not correctly filled or empty, we display an error message-->
-
-<?php if (!isset($_POST['full_name']) || !isset($_POST['email']) || !isset($_POST['age']) || !isset($_POST['password'])): ?>
+<?php 
+//If the form is not correctly filled or empty, we display an error message-
+if (!isset($_POST['full_name']) || !isset($_POST['email']) || !isset($_POST['age']) || !isset($_POST['password'])): ?>
 
     <div id="contact-error">
         <p>Il manque des informations pour la création de votre compte</p>
         <a href="create_user.php">Retour au formulaire</a>
     </div>
 
-  <!-- If the email is not valid, we display an error message-->  
-
-<?php elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)): ?>
+<?php 
+//If the email is not valid, we display an error message
+elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)): ?>
 
     <div id="contact-error">
         <p>Il faut un email valide pour créer un compte</p>
         <a href="create_user.php">Retour au formulaire</a>
     </div> 
 
-<?php else: ?>
-
- <!--We display the new user account details-->   
+<?php else:  //We display the new user account details ?>
 
 <div id="contact-confirmation">
     <h1>Compte Créé !</h1>
@@ -58,9 +56,8 @@ $password = $_POST['password'];
 
 </div>
 
-<!--We insert the new user in the database-->
-
 <?php 
+//We insert the new user in the database
 $insertUser = $mysqlClient->prepare('INSERT INTO users(full_name, email, user_password, age) VALUES (:full_name, :email, :user_password, :age)');
 $insertUser->execute([
     'full_name' => $full_name,

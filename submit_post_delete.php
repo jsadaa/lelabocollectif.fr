@@ -6,8 +6,9 @@ include_once('./config/mysql.php');
 //Variable to get the post id from the hidden input
 $postData = $_POST;?>
 
-<!-- If there is not post id, we display an error message-->
-<?php if (!isset($postData['id'])): ?>
+<?php 
+//If there is not post id, we display an error message
+if (!isset($postData['id'])): ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -55,9 +56,8 @@ $postData = $_POST;?>
 
 <?php endif; ?>
 
-<!--We delete the post-->
-
 <?php
+//We delete the post
 $id = $postData['id'];
 
 $deletePostStatement = $mysqlClient->prepare('DELETE FROM posts WHERE post_id = :id');

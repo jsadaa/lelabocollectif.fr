@@ -24,10 +24,9 @@ $fileExist = false; ?>
 
 <?php include_once('header.php'); ?>
 
-<!--If the email is not valid, and if the form is not filled, we display an error message-->
-
-<?php if (
-    (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+<?php 
+//If the email is not valid, and if the form is not filled, we display an error message
+if ((!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
     || (!isset($_POST['message']) || empty($_POST['message']))
     ): ?>
 
@@ -38,10 +37,8 @@ $fileExist = false; ?>
 
 <?php else: ?>
 
- <!-- If there is an attachment file, we process it : -->  
-
 <?php 
-
+//If there is an attachment file, we process it 
 // We test if the file is sent and if there is no error
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0)
 {
@@ -70,6 +67,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0)
 
 
 <?php
+include_once('variables.php');
 //We use Phpmailer to send an email from the contact form
 require './phpmailer/PHPMailer.php';
 require './phpmailer/SMTP.php';
@@ -84,16 +82,16 @@ $email->IsHTML(true);
 $email->CharSet = 'UTF-8';
 $email->WordWrap   = 50; 	
 //We set the gmail address that will be used for sending email
-$email->Username = "lelabocollectif@gmail.com";
+$email->Username = $gmailAccount;
 //We set the valid password for the gmail address
-$email->Password = "mediapairs";
+$email->Password = $gmailPassword;
 //We set the sender email address 
 $email->SetFrom($mail);
 $email->addReplyTo($mail);
 $email->From = $mail;
 $email->FromName = $name;
 //We set the receiver email address
-$email->AddAddress("lelabocollectif@gmail.com");
+$email->AddAddress($gmailAccount);
 $email->Subject = 'Contact from Le Labo Collectif :' . $subject;
 $email->Body = $message;
 

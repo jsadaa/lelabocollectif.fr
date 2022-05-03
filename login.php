@@ -15,6 +15,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         ) {
             $_SESSION['LOGGED_USER'] = $user['email'];
             $_SESSION['LOGGED_USER_NAME'] = $user['full_name'];
+            $_SESSION['LOGGED_USER_ACCOUNT_TYPE'] = $user['is_admin'];
         } else {
             $errorMessage = 'L\'identifiant et/ou le mot de passe sont incorrects...';
         }
@@ -22,17 +23,15 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
 }
 ?>
 
-<!--If the user is not logged in, we display connexion form-->
-
-<?php if(!isset($_SESSION['LOGGED_USER'])): ?>
+<?php 
+//If the user is not logged in, we display connexion form
+if(!isset($_SESSION['LOGGED_USER'])): ?>
 
 <!--Connexion form-->
 
 <form action="" method="post">
 
-    <!--Error display-->
-
-    <?php if(isset($errorMessage)) : ?>
+    <?php if(isset($errorMessage)) : //Error display ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $errorMessage; ?>
         </div>
@@ -61,9 +60,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
     </div>
 </form>
 
-<!--If the user is logged in, we display a welcome message in the forum-->
-
-<?php else: ?>
+<?php else: //If the user is logged in, we display a welcome message in the forum?>
     <div class="login-success" role="alert">
         Bonjour <?php echo $_SESSION['LOGGED_USER_NAME']; ?> (<?php echo $_SESSION['LOGGED_USER']?>) et bienvenue dans l'espace collaboratif !
     </div>
