@@ -1,5 +1,10 @@
 <?php session_start();
 
+$delete_token = uniqid(rand(), true);
+
+$_SESSION['delete_token'] = $delete_token;
+$_SESSION['delete_token_time'] = time();
+
 include_once('./config/mysql.php');
 
 //Variable to get the post id
@@ -27,6 +32,11 @@ $getData = $_GET;
             <div class="form-group">
                 <label for="id" class="form-label"></label>
                 <input type="hidden" class="form-control" id="id" name="id" value="<?php echo($getData['id']); //We send the id via hidden input?>">
+            </div>
+
+            <div class="form-group">
+                <label for="id" class="form-label"></label>
+                <input type="hidden" name="delete_token" id="delete_token" value="<?php echo $delete_token;?>">
             </div>
             
             <div class="form-group">

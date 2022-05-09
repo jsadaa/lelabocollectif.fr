@@ -1,5 +1,10 @@
 <?php session_start();
 
+$update_token = uniqid(rand(), true);
+
+$_SESSION['update_token'] = $update_token;
+$_SESSION['update_token_time'] = time();
+
 include_once('./config/mysql.php');
 
 //variable to get the post id
@@ -30,8 +35,6 @@ $post = $retrievePostStatement->fetch(PDO::FETCH_ASSOC);?>
 
     <?php include_once('header.php');?>
 
-
-
     <?php 
     //If there is no post id or if the post id is not a number, we display a message error
     if (!isset($getData['id']) && is_numeric($getData['id'])): ?>
@@ -52,6 +55,11 @@ $post = $retrievePostStatement->fetch(PDO::FETCH_ASSOC);?>
       <div class="form-group"> 
         <label for="id" id="id-label"></label>
         <input type="hidden" class="form-control" id="id" name="id" value="<?php echo($getData['id']); ?>">
+      </div>
+
+      <div class="form-group">
+        <label for="id" class="form-label"></label>
+        <input type="hidden" name="update_token" id="update_token" value="<?php echo $update_token;?>">
       </div>
 
       <div class="form-group"> 

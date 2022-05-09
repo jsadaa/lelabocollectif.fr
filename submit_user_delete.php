@@ -7,10 +7,6 @@ include_once('./config/mysql.php');
 //Variable to get the user id
 $getData = $_GET;?>
 
-<?php 
-//If there is not user id, we display an error message
-if (!isset($getData['id'])): ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,39 +19,15 @@ if (!isset($getData['id'])): ?>
 <body>
     <div id="bloc_page">
         <?php include_once("header.php");?>
-            <div id="contact-error">
-                <p>Il faut un identifiant valide pour supprimer un compte...</p>
-                <a class="return_link" href="forum.php">Retour dans l'Espace Collectif</a>
-            </div>
-        <?php include_once("footer.php");?>    
-    </div>
-</body>
-</html>
 
-<?php else: ?>
+<?php 
+$old_timestamp = time() - (15*60);
+if(isset($getData['id']) && isset($_SESSION['delete_user_token']) && isset($_SESSION['delete_user_token_time']) && isset($_POST['delete_user_token']) && ($_SESSION['delete_user_token'] == $_POST['delete_user_token']) && ($_SESSION['delete_user_token_time'] >= $old_timestamp)): ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="./style/form_stylesheet.css">
-	<title>Le Labo Collectif - Suppression de compte</title>
-</head>
-<body>
-    <div id="bloc_page">
-    <?php include_once("header.php");?>
         <div id="contact-confirmation">
             <h1>Votre compte a bien été supprimé !</h1>
             <p><a class="return_link" href="forum.php">Retour à l'accueil</a></p>
         </div>  
-    <?php include_once("footer.php");?>   
-    </div>
-</body>
-</html>   
-
-<?php endif; ?>
 
 <?php
 //We delete the user account 
@@ -71,3 +43,19 @@ $deletePostStatement->execute([
     'id' => $id,
 ]);
 ?>
+
+<?php else: ?>
+
+        <div id="contact-error">
+            <p>Il faut un identifiant valide et les droits nécéssaires pour supprimer un compte...</p>
+            <a class="return_link" href="forum.php">Retour dans l'Espace Collectif</a>
+        </div>
+
+<?php endif; ?>
+
+        <?php include_once("footer.php");?>    
+    </div>
+</body>
+</html>
+
+

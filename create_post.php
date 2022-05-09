@@ -1,4 +1,13 @@
-<?php session_start();?>
+<?php session_start();
+
+$create_token = uniqid(rand(), true);
+
+$_SESSION['create_token'] = $create_token;
+$_SESSION['create_token_time'] = time();
+
+$getData = $_GET;
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,11 +25,25 @@
 
     <?php include_once('header.php');?>
 
+    <?php 
+    $old_timestamp = time() - (15*60);
+    if ((isset($_SESSION['user_token']) && isset($_SESSION['user_token_time']) && isset($getData['id']) && ($_SESSION['user_token_time'] >= $old_timestamp))):  ?>
+
     <!-- Post creation form-->
         
     <form id="post-form" action="submit_post.php" method="post">
 
       <h2>Créer une publication</h2>
+
+      <div class="form-group">
+        <label for="create_token" class="form-label"></label>
+        <input type="hidden" name="create_token" id="create_token" value="<?php echo $create_token;?>">
+      </div>
+
+      <div class="form-group">
+        <label for="pass_user_token" class="form-label"></label>
+        <input type="hidden" name="pass_user_token" id="pass_user_token" value="<?php echo $getData['id'];?>">
+      </div>
 
       <div class="form-group"> 
         <label for="title" id="title-label">Titre</label>
@@ -39,6 +62,15 @@
       </div>
       
     </form>
+
+    <?php else: ?>
+
+    <div id="contact-error">
+        <p>Vous n'avez pas les droits nécéssaires pour créer une publication</p>
+        <a href="create_post.php">Retour au formulaire</a>
+    </div>
+
+    <?php endif;?>
 
     <?php include_once('footer.php'); ?>
   </div>

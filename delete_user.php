@@ -2,7 +2,11 @@
 
 include_once('./config/mysql.php');
 
-//Variable to get user id
+$delete_user_token = uniqid(rand(), true);
+
+$_SESSION['delete_user_token'] = $delete_user_token;
+$_SESSION['delete_user_token_time'] = time();
+
 $getData = $_GET;
 
 ?>
@@ -33,7 +37,12 @@ $getData = $_GET;
                 <label for="id" class="form-label"></label>
                 <input type="hidden" class="form-control" id="id" name="id" value="<?php echo($getData['id']);//We send the id via hidden input?>">
             </div>
-            
+
+            <div class="form-group">
+                <label for="delete_user_token" class="form-label"></label>
+                <input type="hidden" class="form-control" id="delete_user_token" name="delete_user_token" value="<?php echo($delete_user_token)?>">
+            </div>
+         
             <div class="form-group">
                 <button type="submit" id="submit" class="submit-button">
                 Supprimer

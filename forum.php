@@ -31,7 +31,7 @@
             //If the user is logged in, we display posts and features
             if(isset($_SESSION['LOGGED_USER'])): ?>
 
-                <a id="create" href="create_post.php">Créer une publication</a> 
+                <a id="create" href="create_post.php?id=<?php echo $user_token ?>">Créer une publication</a> 
                 
                 <?php foreach(getPosts($posts) as $post) : //We display the posts ?>
                     <?php $postsExist = true ?>

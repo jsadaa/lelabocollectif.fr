@@ -58,11 +58,12 @@ elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)): ?>
 
 <?php 
 //We insert the new user in the database
-$insertUser = $mysqlClient->prepare('INSERT INTO users(full_name, email, user_password, age) VALUES (:full_name, :email, :user_password, :age)');
+$insertUser = $mysqlClient->prepare('INSERT INTO users(full_name, email, user_password, isAdmin, age) VALUES (:full_name, :email, :user_password, :isAdmin, :age)');
 $insertUser->execute([
     'full_name' => $full_name,
     'email' => $email,
     'user_password' => $password,
+    'isAdmin' => 0,
     'age' => $age,
 ]);
 ?>

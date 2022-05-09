@@ -24,37 +24,51 @@ $post = $_POST['post'];
 ?>
 
 <?php 
-//If the form is not correctly filled or empty, we display an error message
-if (!isset($_POST['title']) || empty($_POST['post'])): ?>
+$old_timestamp = time() - (15*60);
+if(isset($_SESSION['create_token']) && isset($_SESSION['create_token_time']) && isset($_POST['create_token']) && (isset($_POST['pass_user_token'])) && (isset($_POST['pass_user_token']) == $_SESSION['user_token']) && ($_SESSION['create_token'] == $_POST['create_token']) && ($_SESSION['create_token_time'] >= $old_timestamp)): ?>
+<!-- -->
+    <?php 
+    //If the form is not correctly filled or empty, we display an error message
+    if (!isset($title) || empty($post)): ?>
 
-    <div id="contact-error">
-        <p>Il faut un titre et une publication pour soumettre le formulaire...</p>
-        <a href="create_post.php">Retour au formulaire</a>
+        <div id="contact-error">
+            <p>Il faut un titre et une publication pour soumettre le formulaire...</p>
+            <a href="create_post.php">Retour au formulaire</a>
+        </div>
+
+    <?php else:  //We display the new post details ?>
+
+    <div id="contact-confirmation">
+        <h1>Publication envoyée !</h1>
+        <h5>Détail de votre publication</h5>
+        <p><b>Titre</b> : <?php echo strip_tags($title); ?></p>
+        <p><b>Auteur</b> : <?php echo strip_tags($_SESSION['LOGGED_USER_NAME']); ?></p>
+        <p><b>Publication</b> : <?php echo strip_tags($post); ?></p>
+        <p><a class="return_link" href="forum.php">Retour dans l'espace collectif</a></p>
     </div>
 
-<?php else:  //We display the new post details ?>
+    <?php 
+    //We insert the new post in the database
+    $insertPost = $mysqlClient->prepare('INSERT INTO posts(title, post, author, is_enabled) VALUES (:title, :post, :author, :is_enabled)');
+    $insertPost->execute([
+        'title' => $title,
+        'post' => $post,
+        'author' => $_SESSION['LOGGED_USER_NAME'],
+        'is_enabled' => 1,   
+    ]);?>
 
-<div id="contact-confirmation">
-    <h1>Publication envoyée !</h1>
-    <h5>Détail de votre publication</h5>
-    <p><b>Titre</b> : <?php echo strip_tags($title); ?></p>
-    <p><b>Auteur</b> : <?php echo strip_tags($_SESSION['LOGGED_USER_NAME']); ?></p>
-    <p><b>Publication</b> : <?php echo strip_tags($post); ?></p>
-    <p><a class="return_link" href="forum.php">Retour dans l'espace collectif</a></p>
-</div>
 
-<?php 
-//We insert the new post in the database
-$insertPost = $mysqlClient->prepare('INSERT INTO posts(title, post, author, is_enabled) VALUES (:title, :post, :author, :is_enabled)');
-$insertPost->execute([
-    'title' => $title,
-    'post' => $post,
-    'author' => $_SESSION['LOGGED_USER_NAME'],
-    'is_enabled' => 1,   
-]);
-?>
+    <?php endif; ?>
 
-<?php endif; ?>
+    
+<?php else: ?>
+
+    <div id="contact-error">
+        <p>Vous n'avez pas les droits nécéssaires pour soumettre une publication sur ce compte</p>
+        <a href="forum.php">Retour dans l'Espace Collectif</a>
+    </div>  
+
+<?php endif?>
 
 <?php include_once("footer.php");?>
 

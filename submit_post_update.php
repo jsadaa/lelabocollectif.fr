@@ -2,7 +2,6 @@
 
 include_once("./config/mysql.php");
 include_once("functions.php");
-include_once("header.php");
 
 //Variable to get the post id
 $postData = $_POST;
@@ -18,9 +17,7 @@ $insertPostUpdate->execute([
     'title' => $title,
     'post' => $post,
     'id' => $id,
-]);
-
-?>
+]);?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,20 +32,11 @@ $insertPostUpdate->execute([
 
 <div id="bloc_page">
 
+<?php include_once("header.php");?>
+
 <?php 
-//If there is no post id and data, we display an error message
-if (
-    !isset($postData['id'])
-    || !isset($postData['title']) 
-    || !isset($postData['post'])
-    ): ?>
-
-    <div id="contact-error">
-        <p>Il manque des informations pour mettre à jour la publication</p>
-        <a href="forum.php">Retour dans l'Espace Collectif</a>
-    </div>
-
-<?php else: //We display post mods details ?>
+$old_timestamp = time() - (15*60);
+if(isset($_SESSION['update_token']) && isset($_SESSION['update_token_time']) && isset($postData['update_token']) && (isset($postData['id'])) && ($_SESSION['update_token'] == $_POST['update_token']) && ($_SESSION['update_token_time'] >= $old_timestamp)): ?>
 
 <div id="contact-confirmation">
     <h1>Publication modifiée !</h1>
@@ -59,11 +47,25 @@ if (
     <p><a class="return_link" href="forum.php">Retour dans l'espace collectif</a></p>
 </div>
 
+<?php elseif (!isset($postData['id']) || !isset($postData['title']) || !isset($postData['post'])): //If there is no post id and data, we display an error message ?>
+
+    <div id="contact-error">
+        <p>Il manque des informations pour mettre à jour la publication</p>
+        <a href="forum.php">Retour dans l'Espace Collectif</a>
+    </div>    
+
+<?php else: ?>
+
+    <div id="contact-error">
+        
+        <p>Vous n'avez pas les droits nécéssaires pour mettre à jour la publication</p>
+        <a href="forum.php">Retour dans l'Espace Collectif</a>
+    </div>
+
 <?php endif; ?>
 
 <?php include_once("footer.php");?>
 
 </div>
-
 </body>
 </html>

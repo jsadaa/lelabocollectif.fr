@@ -16,6 +16,9 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
             $_SESSION['LOGGED_USER'] = $user['email'];
             $_SESSION['LOGGED_USER_NAME'] = $user['full_name'];
             $_SESSION['LOGGED_USER_IS_ADMIN'] = $user['isAdmin'];
+            $user_token = uniqid(rand(), true);
+            $_SESSION['user_token'] = $user_token;
+            $_SESSION['user_token_time'] = time();
         } else {
             $errorMessage = 'L\'identifiant et/ou le mot de passe sont incorrects...';
         }
