@@ -15,11 +15,8 @@ This will need further work as their is no real mail verification on account cre
 More features will come, like comments section and the possibility to add pictures and files to each posts.
 I also have to rework the design and responsive design.
 
-The developpment of this project allowed me to learn coding, espacially CSS, PHP and MySQL.
+The developpment of this project allowed me to learn coding, especially CSS, PHP and MySQL.
 No frameworks here, i wanted to learn pure basic languages first.
-
-I starded coding 2 month ago and i love it.
-I'm officialy starting studying it in october but i'm already taking courses online.
 
 I hope you'll like it.
 
