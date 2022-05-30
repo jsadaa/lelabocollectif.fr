@@ -1,77 +1,219 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="./style/index_stylesheet.css">
-	<title>Le Labo Collectif - Accueil</title>
-</head>
-<body>
+<?php
 
-	<div id="bloc_page">
+if (isset($_GET['action'])) 
+{
+    if ($_GET['action'] == 'displayDocumentation') 
+    {
+        require('src/controllers/front/index.php');
+        displayDocumentation();
+    }
 
-    <?php include_once('header.php'); ?>
+    elseif ($_GET['action'] == 'displayContact') 
+    {
+        require('src/controllers/front/contact.php');
+        displayContact();
+    }
 
-		<div class="sections">
-			<section class="section_left">
-					<p class="presentation">
-						Soucieuses de contribuer au mieux vivre ensemble qui parvient à s’introduire dans nos sociétés, nous avons créé une structure d’écoute, d’échange et de partage sur comment gérer au mieux les conflits auxquels nous faisons face. C’est au niveau de l’éducation qu’il faut intervenir afin que les citoyens de demain aient une attitude appropriée et positive face aux conflits ainsi qu’une vision apaisée des relations humaines. En agissant tôt, dès la maternelle notre but est bien de rendre les enfants acteurs de leur devenir en société.<br>
-						L’un des concepts moteur de l’association est la pluridisciplinarité, nous favorisons la rencontre des regards pour une approche plus juste de la résolution non violente des conflits.
-					</p>
-			</section>
+    elseif ($_GET['action'] == 'displaySubmitContact') 
+    {
+        require('src/controllers/front/contact.php');
+        try
+        {
+            if ((!empty($_POST['name'])) && (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+            && (!empty($_POST['message']) && (!empty($_POST['message'])))) 
+            {   
+                sendMail();
+                displaySubmitContact();
+            } else 
+            {
+                throw new Exception('Il manque des informations pour envoyer votre message...');
+            }
+        } catch(Exception $e)
+        {
+            $msgErreur = $e->getMessage();
+            require 'templates/front/error.php';
+        }   
+    }
 
-			<section class="section_right">
-					<aside class="visuel">
-						<img src="images/visuel_labo_collectif_1024x1078.png" alt="visuel" class="image_visuel" id="visu_id"> 
-					</aside>
-			</section>
-		</div>
+    elseif ($_GET['action'] == 'displayForum') 
+    {
+        require('src/controllers/front/forum.php');
+        loginCheck();
+        if (isset($_SESSION['LOGGED_USER']))
+        {
+            dbConnect();
+            $posts = getPosts();   
+            displayForum();   
+        } else 
+        {
+            displayLogin();
+        }
+    }
+    
+    elseif ($_GET['action'] == 'displayLogout') 
+    {
+        require('src/controllers/front/forum.php');
+        displayLogout();
+    }
 
-		<div class="section_bottom">
-			<section class="section_bottom">
-				<div class="video">
-					<iframe src="https://player.vimeo.com/video/315274454?h=5a865d0457" width="800" height="514" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-				</div>
-			</section>
-		</div>
+    elseif ($_GET['action'] == 'displayCreateUser') 
+    {
+        require('src/controllers/front/forum.php');
+        displayCreateUser();
+    }
 
-		<div class="bandeau_icones">
-				<p><img src="./images/pictos/002-friendship.png" class="ico" alt="Icone 1">
-				</p>
-				<p><img src="./images/pictos/002-meditation.png" class="ico" alt="Icone 2">
-				</p>
-				<p><img src="./images/pictos/003-call-center-1.png" class="ico" alt="Icone 3">
-				</p>
-				<p><img src="./images/pictos/003-target.png" class="ico" alt="Icone 4">
-				</p>
-				<p><img src="./images/pictos/004-key.png" class="ico" alt="Icone 5">
-				</p>
-				<p><img src="./images/pictos/006-helping.png" class="ico" alt="Icone 6">
-				</p>
-				<p><img src="./images/pictos/005-communication.png" class="ico" alt="Icone 7">
-				</p>
-		</div>		
+    elseif ($_GET['action'] == 'submitUser') 
+    {
+        require('src/controllers/front/forum.php');
+        submitUser();
+        displaySubmitUser();
+    }
 
-		<div class="team">
-			<article>
-				<h2 class="titre_equipe">&Eacute;quipe</h2>
-				<p class="presentation_equipe">
-					Mathilde Pradat : <span class="span_equipe">Co-fondatrice et Présidente</span><br>
-					Nina Vernay : <span class="span_equipe">Co-fondatrice et Médiatrice scolaire</span><br>
-					Salea Pradat : <span class="span_equipe">Infirmière Sophrologue</span><br>
-					Anne-Gaëlle Goujon : <span class="span_equipe">Psychologue clinicienne, Cycle 1 thérapie familiale psychanalytique</span><br>
-					Élodie Vernay : <span class="span_equipe">Secrétaire et Professeure des écoles</span><br>
-					Marion Godon : <span class="span_equipe">Comédienne et Intervenante en atelier théâtre</span><br>
-					<br>
-					En partenariat avec La Clinique de la Médiation,
-					Université Lumière Lyon II
-				</p>
-			</article>
-		</div>	
+    elseif ($_GET['action'] == 'displayDeleteUser') 
+    {
+        require('src/controllers/front/forum.php');
+        displayDeleteUser();
+    }
+
+    elseif ($_GET['action'] == 'submitDeleteUser') 
+    {    
+        require('src/controllers/front/forum.php');
+        $old_timestamp = time() - (15*60);
+        try 
+        {
+        if (isset($_SESSION['delete_user_token']) && isset($_SESSION['delete_user_token_time']) && isset($_POST['delete_user_token']) 
+        && ($_SESSION['delete_user_token'] == $_POST['delete_user_token']) && ($_SESSION['delete_user_token_time'] >= $old_timestamp)) 
+        {
+            if (isset($_GET['id'])) 
+            {
+                SubmitDeleteUser();
+                displaySubmitDeleteUser();
+            } else 
+            {
+                throw new Exception('Il manque des informations pour supprimer votre compte...');
+            }
+        } else 
+        {
+            throw new Exception("Vous n'avez pas les droits nécéssaires pour supprimer un compte...");
+        }
+        } catch(Exception $e)
+        {
+            $msgErreur = $e->getMessage();
+            require 'templates/front/error.php';
+        } 
+    }
+    
+    elseif ($_GET['action'] == 'displayCreatePost') 
+    {
+        require('src/controllers/front/forum.php');
+        displayCreatePost();
+    }
+
+    elseif ($_GET['action'] == 'submitPost') 
+    {
+        require('src/controllers/front/forum.php');
+        $old_timestamp = time() - (15*60);
+        try 
+        {
+            if(isset($_SESSION['create_token']) && isset($_SESSION['create_token_time']) && isset($_POST['create_token']) 
+            && ($_SESSION['create_token'] == $_POST['create_token']) && ($_SESSION['create_token_time'] >= $old_timestamp)) 
+            {
+                $title = $_POST['title'];
+                $post = $_POST['post'];
+                if (isset($title) || !empty($post)) 
+                {
+                    dbConnect();
+                    submitPost();
+                    displaySubmitPost();
+
+                } else 
+                {
+                    throw new Exception('Il manque des informations pour soumettre votre publication...');
+                }
+            } else 
+            {
+                throw new Exception("Vous n'avez pas les droits nécéssaires pour soumettre une publication...");
+            }
+        } catch(Exception $e)
+        {
+            $msgErreur = $e->getMessage();
+            require 'templates/front/error.php';
+        } 
+    } 
+
+    elseif ($_GET['action'] == 'displayUpdatePost') 
+    {
+        require('src/controllers/front/forum.php');
+        retrievePost();
+        displayUpdatePost();
+    }
+
+    elseif ($_GET['action'] == 'submitUpdatePost') 
+    {
+        require('src/controllers/front/forum.php');
+        $old_timestamp = time() - (15*60);
+        try 
+        {
+            if (isset($_SESSION['update_token']) && isset($_SESSION['update_token_time']) && isset($_POST['update_token']) 
+            && ($_SESSION['update_token'] == $_POST['update_token']) && ($_SESSION['update_token_time'] >= $old_timestamp)) 
+            {
+                $title = $_POST['title'];
+                $post = $_POST['post'];
+                if (isset($title) || !empty($post)) {
+                    submitUpdatePost();
+                    displaySubmitUpdatePost();
+                } else 
+                {
+                    throw new Exception('Il manque des informations pour modifier votre publication...');
+                }
+            } else 
+            {
+                throw new Exception("Vous n'avez pas les droits nécéssaires pour modifier une publication...");
+            }
+        } catch(Exception $e)
+        {
+            $msgErreur = $e->getMessage();
+            require 'templates/front/error.php';
+        } 
         
-        <?php include_once('footer.php'); ?>
-		
-	</div>
-</body>
-</html>
+    }
+
+    elseif ($_GET['action'] == 'displayDeletePost') 
+    {
+        require('src/controllers/front/forum.php');
+        displayDeletePost();
+    }
+
+    elseif ($_GET['action'] == 'submitDeletePost') 
+    {
+        require('src/controllers/front/forum.php');
+        $old_timestamp = time() - (15*60);
+        try 
+        {
+            if(isset($_SESSION['delete_token']) && isset($_SESSION['delete_token_time']) && isset($_POST['delete_token']) 
+            && ($_SESSION['delete_token'] == $_POST['delete_token']) && ($_SESSION['delete_token_time'] >= $old_timestamp)) 
+            {
+                if (isset($_POST['id'])) {
+                submitDeletePost();
+                displaySubmitDeletePost();
+                } else 
+                {
+                    throw new Exception('Il manque des informations pour supprimer votre publication...');
+                }
+            } else 
+            {
+                throw new Exception("Vous n'avez pas les droits nécéssaires pour supprimer une publication...");
+            }
+        } catch(Exception $e)
+        {
+            $msgErreur = $e->getMessage();
+            require 'templates/front/error.php';
+        } 
+    }
+}
+
+else 
+{
+    require('src/controllers/front/index.php');
+    displayIndex();
+}
